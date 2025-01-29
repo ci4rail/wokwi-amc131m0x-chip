@@ -1,0 +1,37 @@
+name: HDC2010 Test
+version: 1
+author: popples
+
+steps:
+  - wait-serial: 'Device ID is correct'
+  - delay: 500ms
+  - set-control:
+      part-id: chip1
+      control: temperature
+      value: -40
+  - set-control:
+      part-id: chip1
+      control: humidity
+      value: 0
+  - wait-serial: 'Temperature: -4000 /100 C raw=0000'
+  - wait-serial: 'Humidity: 0 /100 % raw=0000'
+  - set-control:
+      part-id: chip1
+      control: temperature
+      value: -20
+  - set-control:
+      part-id: chip1
+      control: humidity
+      value: 15
+  - wait-serial: 'Temperature: -2001 /100 C raw=1f07'
+  - wait-serial: 'Humidity: 1499 /100 % raw=2666'
+  - set-control:
+      part-id: chip1
+      control: temperature
+      value: 124
+  - set-control:
+      part-id: chip1
+      control: humidity
+      value: 99
+  - wait-serial: 'Temperature: 12399 /100 C raw=fe72'
+  - wait-serial: 'Humidity: 9899 /100 % raw=fd70'

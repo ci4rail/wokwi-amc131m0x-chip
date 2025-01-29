@@ -1,0 +1,23 @@
+{
+  "name": "amc131m0x",
+  "author": "Uri Shaked",
+  "pins": [
+    "SCK",
+    "MISO",
+    "MOSI",
+    "CS",
+    "GND",
+    "VCC",
+    "",
+    ""
+  ],
+  "controls": [
+    {
+      "id": "channels",
+      "label": "Number of Channels",
+      "type": "range",
+      "min": 1,
+      "max": 2
+    }
+  ]
+}
