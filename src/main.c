@@ -30,6 +30,15 @@ static void chip_spi_done(void *user_data, uint8_t *buffer, uint32_t count);
 static uint16_t calc_crc(uint8_t *data, size_t len);
 static void rst_pin_change(void *user_data, pin_t pin, uint32_t value);
 
+static void dump_buffer(uint8_t *buffer, size_t size)
+{
+  for (size_t i = 0; i < size; i++)
+  {
+    printf("%02X ", buffer[i]);
+  }
+  printf("\n");
+}
+
 static void reset(chip_state_t *chip)
 {
   memset(chip->regs, 0, sizeof(chip->regs));
@@ -199,6 +208,7 @@ void chip_spi_done(void *user_data, uint8_t *buffer, uint32_t count)
   if (crc != actual_crc)
   {
     printf("CRC mismatch: 0x%04X != 0x%04X\n", crc, actual_crc);
+    dump_buffer(buffer, count);
     return;
   }
 
