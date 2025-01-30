@@ -1,15 +1,19 @@
-# Wokwi HDC2010 Chip
+# Wokwi AMC131M0X Chip
 
-Simulates a HDC2010 temperature/humdity sensor chip.
+Simulates a AMC131M0X ADC chip in Wokwi.
 
 Currently supports: 
-* Reading temperature and humidity values in manual measurement mode
-* Manufacturer ID and Device ID registers
-* DRDY signal in high active mode
+* 24 bit word size
+* ID register
+* CRC check and generation (always on)
+* Reset via Pin
+* Simulation of DCDC enable
+* One or two channels (via attrs or control)
 
 Not supported
-* Automatic measurement mode
-* Interrupts
+* Writes to configuration registers are supported, but have no effect, except DCDC enable
+* DRDY pin
+* Multi-register read/write
 - Threshold and Offset registers
 
 
@@ -17,12 +21,13 @@ Not supported
 
 | Name | Description              |
 | ---- | ------------------------ |
-| VCC  | Supply voltage  - doesn't need to be connected |
-| ADDR   | Address Input - leave open for 0 |
-| GND  | Ground - doesn't need to be connected |
-| SDA  | I2C SDA |
-| SCL  | I2C SCL |
-| DRDY | Data Ready - goes high when data is ready to be read |
+| SCK | SPI Clock             |
+| MISO | SPI Master In Slave Out |
+| MOSI | SPI Master Out Slave In |
+| CS | SPI Chip Select |
+| GND | Ground (not used)|
+| VCC | Power (not used)|
+| RST | Reset pin (has internal pullup, may be left open)|
 
 ## Usage
 
@@ -30,16 +35,16 @@ To use this chip in your project, include it as a dependency in your `diagram.js
 
 ```json
   "dependencies": {
-    "chip-hdc2010": "github:ci4rail/wokwi-hdc2010-chip@1.0.0"
+    "chip-hdc2010": "github:ci4rail/wokwi-amc131m0x-chip@1.0.0"
   }
 ```
 
-Then, add the chip to your circuit by adding a `chip-hdc2010` item to the `parts` section of diagram.json:
+Then, add the chip to your circuit by adding a `chip-amc131m0x` item to the `parts` section of diagram.json:
 
 ```json
   "parts": {
     ...,
-    { "type": "chip-hdc2010", "id": "chip1" }
+    { "type": "chip-amc131m0x", "id": "chip1", "attrs": { "channels": 1 } }
   },
 ```
 

@@ -1,4 +1,4 @@
-# HDC2010 Chip Model for Wokwi
+# AMD131M0X Chip Model for Wokwi
 
 See more details in [docs/README.md](docs/README.md).
 
@@ -12,7 +12,7 @@ The easiest way to build the project is to open it inside a Visual Studio Code d
 
 You can test this project using the [Wokwi extension for VS Code](https://marketplace.visualstudio.com/items?itemName=wokwi.wokwi-vscode). Open the project with Visual Studio Code, press "F1" and select "Wokwi: Start Simulator".
 
-If you want to make changes to the test project firmware, edit [test/blink/blink.ino](test/blink/blink.ino), and then run `make test` to rebuild the .hex file. You'll need the [arduino-cli](https://arduino.github.io/arduino-cli/latest/installation/), which is already installed in the dev container.
+If you want to make changes to the test project firmware, edit [test/main/main.ino](test/main/main.ino), and then run `make test` to rebuild the .hex file. You'll need the [arduino-cli](https://arduino.github.io/arduino-cli/latest/installation/), which is already installed in the dev container.
 
 ## License
 

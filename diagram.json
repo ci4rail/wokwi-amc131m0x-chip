@@ -4,7 +4,7 @@
   "editor": "wokwi",
   "parts": [
     { "type": "wokwi-arduino-uno", "id": "uno", "top": 10.2, "left": 37.8, "attrs": {} },
-    { "type": "chip-amc131m0x", "id": "chip1", "top": -76.8, "left": 192, "attrs": {} }
+    { "type": "chip-amc131m0x", "id": "chip1", "top": -75.78, "left": 187.2, "attrs": {} }
   ],
   "connections": [
     [ "chip1:SDA", "uno:A4", "purple", [ "h-18.68", "v45.18", "h-41.85" ] ],
