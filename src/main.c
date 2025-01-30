@@ -129,6 +129,7 @@ void chip_init(void)
       .mosi = pin_init("MOSI", INPUT),
       .done = chip_spi_done,
       .user_data = chip,
+      .mode = 1,
   };
   chip->spi = spi_init(&spi_config);
 

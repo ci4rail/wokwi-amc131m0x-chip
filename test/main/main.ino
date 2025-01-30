@@ -56,6 +56,7 @@ void spiTransfer(uint8_t *buffer, uint16_t opcode)
 
   digitalWrite(CS, LOW);
   SPI.begin();
+  SPI.setDataMode(SPI_MODE1);
   SPI.transfer(buffer, SPI_LEN);
   SPI.end();
   digitalWrite(CS, HIGH);
